@@ -2,7 +2,7 @@
 
 namespace :data do
   task :data_migration_dependencies => :environment do
-    require 'nondestructive_migrations'
+    require 'nonschema_migrations'
   end
 
   desc "run data migration (#{MIGRATIONS_PATH})"

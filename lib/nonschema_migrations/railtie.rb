@@ -1,5 +1,4 @@
-require 'nondestructive_migrations'
-
+require 'nonschema_migrations'
 
 module DataMigrations
   class Railtie < Rails::Railtie

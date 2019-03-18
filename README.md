@@ -196,15 +196,11 @@ appraisal install
 appraisal rake test
 ```
 
-or to run just rails 4.0:
+Test all versions of Rails back to Rails 3 with Appraisal, just run:
 ```
-appraisal rails-4-0 rake test
+bundle exec appraisal rake test
 ```
 
-We are currently configured for rails-4-0, rails-4-1, and rails-4-2
-
-
-
-Appraisal runs the specs against different versions of Rails. For more information, see https://github.com/thoughtbot/appraisal
+We test with <strong>Minitest</strong>
 
 You can check out CodeClimate & Travis reports at the top of this README

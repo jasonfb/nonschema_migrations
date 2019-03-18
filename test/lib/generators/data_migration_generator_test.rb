@@ -1,4 +1,6 @@
 require 'test_helper'
+#
+# require "rails"
 
 # This is the class that will test the datamigration generators
 

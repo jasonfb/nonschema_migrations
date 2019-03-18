@@ -2,7 +2,6 @@ require 'rails/generators'
 require 'rails/generators/migration'
 require 'rails/generators/active_record'
 
-
 module DataMigrations
   class InstallGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
@@ -10,6 +9,7 @@ module DataMigrations
 
     desc "Creates an initializer and copy files to your application."
     class_option :orm, type: 'boolean'
+
     def self.next_migration_number(path)
       Time.now.utc.strftime("%Y%m%d%H%M%S")
     end
