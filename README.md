@@ -92,7 +92,7 @@ Rollback the last version. Generally data migrations don't have any "down" assoc
 
 #
 
-As [![sgringwe](https://github.com/sgringwe)](https://github.com/sgringwe) pointed out to me, by default your data migration will run in a single transaction (just like a schema migration).
+By default your data migration will run in a single transaction (just like a schema migration).
 
 To turn this off, add `disable_ddl_transaction!` to the top of your migration, like so:
 
