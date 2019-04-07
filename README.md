@@ -2,24 +2,16 @@ _Please use the version number of this gem in lockstep with your Rails version._
 
 | Rails Version    |  Tested with Ruby Version* |   Use Version of This Gem | Sample app                                           | Released    |           
 |--------------|------------------|--------------------------|---------------------------------------------------------------------|-------------|
-| Rails 4.x, 4.1.x, 4.2  | Ruby 2.2.5  | v1.1                     | https://github.com/jasonfb/nondestructive-migrations-example-app-41 | March 2015  |
-| Rails         | Ruby 2.3.0   | v1.1.5                   | https://github.com/jasonfb/nondestructive-migrations-example-app-42 | Feb 2017    |
-| Rails 5.0        | Ruby 2.3.0   | v1.2                     | https://github.com/jasonfb/nondestructive-migrations-example-app-50 | Feb 2017    |
-| Rails 5.1        | Ruby 2.3.3   | v1.3                     | https://github.com/jasonfb/nondestructive-migrations-example-app-51 | March 2018  |
-| Rails 5.2        | Ruby 2.3.3   | v1.4 *COMING SOON*       | https://github.com/jasonfb/nondestructive-migrations-example-app-52 | *COMING SOON*  |
-
-
-_* other versions of Ruby may work_
-
-
-# Rails 4.0, 4.1, 4.2 Upgrade Warning
-Version 1.0 has a bug if you run it under Rails 4. Specifically, it will run your data migrations but it won't look for the data_migrations table, it will instead use the schema_migrations table. If you have a Rails 3 app, use version 1.0 of this gem. If you upgrade to Rails 4 (or start with a Rails 4 app), use version 1.1 of this gem. If you have a Rails 3 app that you are upgrading to Rails 4 and you fail to upgrade this gem, version 1.0 of this gem when run under a Rails 4 app will re-run all your old data migrations.  Paying attention to the version number when upgrading will avoid this problem. I sincerely regret this but as I did not know about it myself until I upgraded my own app. At the time, since I had already released Version 1.0 of this, I decided not to yank the version and simply leave this note with the version bump. Basically version 1.1 drops support for Rails 3, and I have removed the Rails 3 specs.
-
-
+| Rails 4.x, 4.1.x, 4.2  | Ruby 2.2.5  | v1.1                |  |        |
+| Rails         | Ruby 2.3.0   | v1.1.5                      |  |        |
+| Rails 5.0        | Ruby 2.3.0   | v1.2                     |  |        |
+| Rails 5.1        | Ruby 2.3.3   | v1.3                     |  |        |
+| Rails 5.2        | Ruby 2.3.3   | v1.4 *COMING SOON*       |  | *COMING SOON*  |
+| Rails 6.0        |              | v1.5 *COMING SOON*       |  | *COMING SOON*  |
 
 ## Introduction
 
-Nondestructive migrations, also known as data migrations, are a alternative kind of Rails migration. The data migrations operate exactly like schema migrations, except instead of running migrations to make changes to your schema (adding fields, dropping fields, adding tables, etc), you run data migrations to manipulate data in your app, enqueue or execute Resque jobs that require long-running processes. This happens in a Rails app for different reasons, usually to clean up or supplement data or architectural changes.
+Nonschema migrations, also known as data migrations, are a alternative kind of Rails migration. The data migrations operate exactly like schema migrations, except instead of running migrations to make changes to your schema (adding fields, dropping fields, adding tables, etc), you run data migrations to manipulate data in your app, enqueue or execute Resque jobs that require long-running processes. This happens in a Rails app for different reasons, usually to clean up or supplement data or architectural changes.
 
 Splitting your data migrations from your schema migrations has a particular benefit of achieving the most consistent zero-downtime deploys you can. I recommend you switch your deployment script to allow you to do two types of deploys: a Zero-downtime deploy (no schema migrations) and Schema Migration deploy. 
 
@@ -40,7 +32,7 @@ To add to your Rails project, follow these steps.
 
 1) Add this to your gemfile.
 ```ruby
-gem 'nondestructive_migrations'
+gem 'nonschema_migrations'
 ```
 
 2) Run `bundle install`
@@ -139,9 +131,4 @@ advantage: your app is down only for schema migrations and you can let the data 
 3. Run data migrations (while new app is up & running)
 
 advantage: your app is never down and you can run data migrations in the background
-
-## Example Apps
-
-
-## Housekeeping
 
