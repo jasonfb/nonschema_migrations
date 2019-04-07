@@ -1,32 +1,16 @@
 
 # this is the generator used to create a data migration
 
-class DataMigrationGenerator < Rails::Generators::Base
-  include Rails::Generators::Migration
-  source_root File.expand_path("../data_migrations/templates/", __FILE__)
+class DataMigrationGenerator < ActiveRecord::Generators::Base
+  self.source_root(File.join(self.superclass.base_root,'active_record/migration/templates'))
 
   desc <<-DESC
 Description:
-    Creates new nonschema migration
-DESC
+    Creates new nondestructive migration
+  DESC
 
   def create_data_migration_file
-    @path = args[0]
     migration_template "migration.rb", "db/data_migrate/#{file_name}.rb"
-  end
-
-
-  def file_name
-    "#{next_migration_number}_#{@path.downcase}"
-  end
-
-  def next_migration_number
-    Time.now.utc.strftime("%Y%m%d%H%M%S")
-  end
-
-
-  def self.next_migration_number(path)
-    Time.now.utc.strftime("%Y%m%d%H%M%S")
   end
 
   # 'migration.rb' now requires this var/method
