@@ -2,8 +2,8 @@ _Please use the version number of this gem in lockstep with your Rails version._
 
 | Rails Version    |  Tested with Ruby Version* |   Use Version of This Gem | Sample app                                           | Released    |           
 |--------------|------------------|--------------------------|---------------------------------------------------------------------|-------------|
-| Rails 4.x, 4.1.x, 4.2  | Ruby 2.2.5  | v1.0            |  |        |
-| Rails 5.0        | Ruby 2.3.7   | v2.0                 |  |        |
+| Rails 4.x, 4.1.x, 4.2  | Ruby 2.2.5  | v1.0            |  |        |  2019-05-12
+| Rails 5.0        | Ruby 2.3.7   | v2.0                 |  |        |  2019-05-12
 | Rails 5.1        | Ruby 2.3.7   |                      |  |        |
 | Rails 5.2        | Ruby 2.4.5   |  *COMING SOON*       |  | *COMING SOON*  |
 | Rails 6.0        |              |  *COMING SOON*       |  | *COMING SOON*  |
