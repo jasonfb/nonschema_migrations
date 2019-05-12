@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'nonschema_migrations'
-  s.version     = '0.0.2'
+  s.version     = '1.0.0'
   s.date        = '2019-05-12'
   s.summary     = "Nonschema(data-only) migrations for your Rails app"
   s.description = "Separate schema-only migrations from nonschema (data) migrations in your Rails app"
