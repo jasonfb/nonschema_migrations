@@ -3,10 +3,10 @@ _Please use the version number of this gem in lockstep with your Rails version._
 | Rails Version    |  Tested with Ruby Version* |   Use Version of This Gem | Sample app                                           | Released    |           
 |--------------|------------------|--------------------------|---------------------------------------------------------------------|-------------|
 | Rails 4.x, 4.1.x, 4.2  | Ruby 2.2.5  | v1.0                |  |        |
-| Rails 5.0        | Ruby 2.3.0   | v2.0                     |  |        |
-| Rails 5.1        | Ruby 2.3.3   | v3.0                     |  |        |
-| Rails 5.2        | Ruby 2.3.3   | v4.0 *COMING SOON*       |  | *COMING SOON*  |
-| Rails 6.0        |              | v6.0 *COMING SOON*       |  | *COMING SOON*  |
+| Rails 5.0        | Ruby 2.3.0   |                      |  |        |
+| Rails 5.1        | Ruby 2.3.3   |                      |  |        |
+| Rails 5.2        | Ruby 2.3.3   |  *COMING SOON*       |  | *COMING SOON*  |
+| Rails 6.0        |              |  *COMING SOON*       |  | *COMING SOON*  |
 
 ## Introduction
 
