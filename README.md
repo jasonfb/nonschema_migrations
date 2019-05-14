@@ -4,8 +4,8 @@ _Please use the version number of this gem in lockstep with your Rails version._
 |--------------|------------------|---------------------------------------------|-----|
 | Rails 4.x, 4.1.x, 4.2  | Ruby 2.2.5  | v1.0  (Released May 12, 2019)          |     |
 | Rails 5.0        | Ruby 2.3.7   | v2.0 (Released May 12, 2019)                |     |
-| Rails 5.1        | Ruby 2.3.7   | v3.0 (Released May 14, 2019)     |                      |     |
-| Rails 5.2        | Ruby 2.4.5   | v4.0             |    |
+| Rails 5.1        | Ruby 2.3.7   | v3.0 (Released May 14, 2019)                |     | 
+| Rails 5.2        | Ruby 2.4.5   | v4.0 (Released May 14, 2019)                |     |
 | Rails 6.0        |              |  *COMING SOON*       |    |
 
 ## Introduction
