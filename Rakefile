@@ -5,7 +5,7 @@ require "bundler/setup"
 require 'rake/testtask'
 
 require "minitest"
-require 'minitest/autorun'
+require 'minist/autorun'
 
 
 Rake::TestTask.new do |t|
