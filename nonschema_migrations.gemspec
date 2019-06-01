@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'nonschema_migrations'
-  s.version     = '2.0.1'
+  s.version     = '3.0.1'
   s.date        = '2019-06-01'
   s.summary     = "Nonschema(data-only) migrations for your Rails app"
   s.description = "Separate schema-only migrations from nonschema (data) migrations in your Rails app"
@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.homepage    =  'https://github.com/jasonfb/nonschema_migrations'
   s.license       = 'MIT'
   
-  s.add_runtime_dependency 'activerecord', '~> 5.0'
+  s.add_runtime_dependency 'activerecord', '~> 5.1'
 end
