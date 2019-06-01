@@ -13,7 +13,7 @@ Rake::TestTask.new do |t|
   t.libs << 'lib'
   t.libs << 'lib/generators'
   t.libs << 'lib/tasks'
-  t.libs << 'lib/nondestructive_migrations'
+  t.libs << 'lib/nonschema_migrations'
   t.pattern = 'test/**/*_test.rb'
 end
 
@@ -24,7 +24,7 @@ task :default => :test
 task :console do
   require 'irb'
   require 'irb/completion'
-  require 'nondestructive_migrations' # You know what to do.
+  require 'nonschema_migrations' # You know what to do.
   ARGV.clear
   IRB.start
 end

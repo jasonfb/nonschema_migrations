@@ -1,4 +1,4 @@
-class CreateDataMigrations < ActiveRecord::Migration[5.2]
+class CreateDataMigrations < ActiveRecord::Migration
   def self.up
     create_table :data_migrations do |t|
       t.string :version

@@ -28,12 +28,12 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __FILE__))
 $:.unshift File.dirname(__FILE__)
 
 # require the gem itself
-require 'lib/nondestructive_migrations.rb'
+require 'lib/nonschema_migrations.rb'
 
-require 'lib/nondestructive_migrations/railtie' if defined?(Rails)
+require 'lib/nonschema_migrations/railtie' if defined?(Rails)
 
 Dir['lib/generators/*.rb'].sort.each { |f| require f }
-Dir['lib/nondestructive_migrations/*.rb'].sort.each { |f| require f }
+Dir['lib/nonschema_migrations/*.rb'].sort.each { |f| require f }
 Dir['lib/*.rb'].sort.each { |f| require f }
 
 require 'mocha/mini_test'

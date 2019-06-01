@@ -6,6 +6,6 @@ require 'generators/data_migration_generator.rb'
 require 'active_record/data_migration.rb'
 require 'nonschema_migrator.rb'
 
-module NondestructiveMigrations
+module NonschemaMigrations
   require "nonschema_migrations/railtie.rb" if defined?(Rails)
 end

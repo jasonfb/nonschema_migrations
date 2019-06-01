@@ -1,25 +1,25 @@
 
 
 
-class NondestructiveMigrator < ActiveRecord::Migrator
+class NonschemaMigrator < ActiveRecord::Migrator
   # This class related to data migration.
   # Used in rake tasks (rake data:[migrate|rollback|up|down])
 
   if defined?(ActiveRecord::MigrationContext)
     class SchemaMigration < ActiveRecord::SchemaMigration
       def self.table_name
-        NondestructiveMigrator.schema_migrations_table_name
+        NonschemaMigrator.schema_migrations_table_name
       end
     end
 
     class MigrationContext < ActiveRecord::MigrationContext
       def initialize(migrations_paths)
         super(migrations_paths)
-        @schema_migration = NondestructiveMigrator::SchemaMigration
+        @schema_migration = NonschemaMigrator::SchemaMigration
       end
 
       def new_migrator(*args)
-        result = NondestructiveMigrator.new(*args)
+        result = NonschemaMigrator.new(*args)
         result.migration_context = self
         result
       end
@@ -54,6 +54,12 @@ class NondestructiveMigrator < ActiveRecord::Migrator
 
         (db_list + file_list).sort_by { |_, version, _| version }
       end
+
+
+      def rollback(steps)
+        move(:down, steps)
+      end
+
 
       def move(direction, steps)
         migrator = new_migrator(direction, migrations)
@@ -97,7 +103,7 @@ class NondestructiveMigrator < ActiveRecord::Migrator
 
     class << self
       def context(path)
-        NondestructiveMigrator::MigrationContext.new(path)
+        NonschemaMigrator::MigrationContext.new(path)
       end
 
       def new_migrator(path, *args)
@@ -157,5 +163,3 @@ class NondestructiveMigrator < ActiveRecord::Migrator
     end
   end
 end
-
-
