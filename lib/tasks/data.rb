@@ -12,9 +12,14 @@ namespace :data do
 
   desc "rollback data migration (#{MIGRATIONS_PATH})"
   task :rollback => :data_migration_dependencies do
-    step = ENV['STEP'] ? ENV['STEP'].to_i : 1
-    NonschemaMigrator.rollback(MIGRATIONS_PATH,step)
+    NonschemaMigrator.rollback(MIGRATIONS_PATH)
   end
+
+  desc "honeybear (#{MIGRATIONS_PATH})"
+  task :honeybear => :data_migration_dependencies do
+    puts "hello honeybear"
+  end
+
 
   namespace :migrate do
     desc %Q{runs the "up" for a given _data_ migration VERSION}

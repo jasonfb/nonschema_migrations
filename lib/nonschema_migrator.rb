@@ -1,6 +1,3 @@
-
-
-
 class NonschemaMigrator < ActiveRecord::Migrator
   # This class related to data migration.
   # Used in rake tasks (rake data:[migrate|rollback|up|down])
@@ -55,11 +52,9 @@ class NonschemaMigrator < ActiveRecord::Migrator
         (db_list + file_list).sort_by { |_, version, _| version }
       end
 
-
       def rollback(steps)
         move(:down, steps)
       end
-
 
       def move(direction, steps)
         migrator = new_migrator(direction, migrations)
@@ -82,20 +77,20 @@ class NonschemaMigrator < ActiveRecord::Migrator
 
       def up(target_version = nil)
         selected_migrations = if block_given?
-          migrations.select { |m| yield m }
-        else
-          migrations
-        end
+                                migrations.select { |m| yield m }
+                              else
+                                migrations
+                              end
 
         new_migrator(:up, selected_migrations, target_version).migrate
       end
 
       def down(target_version = nil)
         selected_migrations = if block_given?
-          migrations.select { |m| yield m }
-        else
-          migrations
-        end
+                                migrations.select { |m| yield m }
+                              else
+                                migrations
+                              end
 
         new_migrator(:down, selected_migrations, target_version).migrate
       end
@@ -114,6 +109,10 @@ class NonschemaMigrator < ActiveRecord::Migrator
 
       def migrate(path)
         context(path).migrate()
+      end
+
+      def rollback(path, steps = 1)
+        context(path).rollback(steps)
       end
 
       def run(direction, path, target_version)
@@ -145,7 +144,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
     def migrations_path
       MIGRATIONS_PATH
     end
-    
+
     def schema_migrations_table_name
       'data_migrations'
     end
@@ -163,3 +162,4 @@ class NonschemaMigrator < ActiveRecord::Migrator
     end
   end
 end
+

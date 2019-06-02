@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    nonschema_migrations (0.0.0)
-      activerecord
+    nonschema_migrations (4.0.2)
+      activerecord (~> 5.2)
 
 GEM
   remote: https://rubygems.org/
@@ -43,7 +43,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    i18n (1.5.1)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
     listen (3.1.5)
