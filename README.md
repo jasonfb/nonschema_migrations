@@ -22,7 +22,7 @@ Data migrations functional EXACTLY like schema migrations except:
 
 1) They live in db/data_migrate instead of db/migrate
 
-2) They timestamps used to record which ones have been run are in a table called data_migrations instead of the normal schema_migrations table
+2) The timestamps used to record which ones have been run are in a table called data_migrations instead of the normal schema_migrations table
 
 3) You run them using rake data:migrate instead of rake db:migrate
 
