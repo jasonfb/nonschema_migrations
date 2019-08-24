@@ -46,7 +46,7 @@ This will create a *schema* migration that will create the data_migrations table
 rake db:migrate
 ```
 
-You are now set up and ready to start making data migrations. To create your first migration, create it with a generating using a camal-case description of what your data migration does. 
+You are now set up and ready to start making data migrations. To create your first migration, create it with a generating using a camel-case description of what your data migration does. 
 
 ```
 rails generate data_migration UpdatePhoneNumbers
