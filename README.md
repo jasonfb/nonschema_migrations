@@ -56,7 +56,7 @@ Look for a file called (something like) `db/data_migrate/20140831020834_update_p
 
 You probably want to put `ActiveRecord::IrreversibleMigration` into the **down** method your data migration:
 
-```
+```ruby
 class UpdatePhoneNumbers < ActiveRecord::Migration
   def up
     # do stuff here
@@ -96,7 +96,7 @@ By default your data migration will run in a single transaction (just like a sch
 
 To turn this off, add `disable_ddl_transaction!` to the top of your migration, like so:
 
-```
+```ruby
 class UpdatePhoneNumbers < ActiveRecord::Migration
   disable_ddl_transaction!
   def up
