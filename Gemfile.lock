@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    nonschema_migrations (4.0.2)
-      activerecord (~> 5.2)
+    nonschema_migrations (5.0.0)
+      activerecord (>= 5.0, < 7)
 
 GEM
   remote: https://rubygems.org/
