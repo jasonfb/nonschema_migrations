@@ -6,7 +6,7 @@ _Please use the version number of this gem in lockstep with your Rails version._
 | Rails 5.0        |    | v2.0.1 (Released Jun 1, 2019)                |     |
 | Rails 5.1        |    | v3.0.1 (Released Jun 1, 2019)                |     | 
 | Rails 5.2        |    | v4.0.2 (Released Jun 2, 2019)                |     |
-| Rails 6.0        |    | v5.0.1 (Released Dec 10, 2019)                |    |
+| Rails 6.0        |    | v5.0.2 (Released Dec 10, 2019)                |    |
 
 ## Introduction
 
