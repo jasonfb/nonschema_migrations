@@ -2,17 +2,31 @@ class NonschemaMigrator < ActiveRecord::Migrator
   # This class related to data migration.
   # Used in rake tasks (rake data:[migrate|rollback|up|down])
 
+  def initialize(direction, migrations, no_op, target_version = nil)
+    @direction         = direction
+    @target_version    = target_version
+    @migrated_versions = nil
+    @migrations        = migrations
+
+    validate(@migrations)
+
+    ActiveRecord::InternalMetadata.create_table
+  end
+
   if defined?(ActiveRecord::MigrationContext)
-    class SchemaMigration < ActiveRecord::SchemaMigration
+    class NonSchemaMigration < ActiveRecord::SchemaMigration
       def self.table_name
         NonschemaMigrator.schema_migrations_table_name
       end
     end
 
     class MigrationContext < ActiveRecord::MigrationContext
-      def initialize(migrations_paths)
-        super(migrations_paths)
-        @schema_migration = NonschemaMigrator::SchemaMigration
+      def initialize(migrations_paths, data_migration)
+
+        # super(migrations_paths, data_migration)
+        @migrations_paths = migrations_paths
+
+        @schema_migration = NonschemaMigrator::NonSchemaMigration
       end
 
       def new_migrator(*args)
@@ -23,7 +37,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
 
       # these methods are copied from ActiveRecord::Migrator
       # replaced:
-      #  1.) ActiveRecord::SchemaMigration with @schema_migration
+      #  1.) ActiveRecord::NonSchemaMigration with @schema_migration
       #  2.) ActiveRecord::Migrator.new with new_migrator
 
       def get_all_versions
@@ -57,7 +71,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
       end
 
       def move(direction, steps)
-        migrator = new_migrator(direction, migrations)
+        migrator = new_migrator(direction, migrations, schema_migration)
 
         if current_version != 0 && !migrator.current_migration
           raise UnknownMigrationVersionError.new(current_version)
@@ -98,7 +112,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
 
     class << self
       def context(path)
-        NonschemaMigrator::MigrationContext.new(path)
+        NonschemaMigrator::MigrationContext.new(path, ActiveRecord::DataMigration)
       end
 
       def new_migrator(path, *args)

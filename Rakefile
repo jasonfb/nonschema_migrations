@@ -20,11 +20,10 @@ end
 desc "Run tests"
 task :default => :test
 
-
 task :console do
   require 'irb'
   require 'irb/completion'
-  require 'nonschema_migrations' # You know what to do.
+  require 'nonschema_migrations'
   ARGV.clear
   IRB.start
 end
