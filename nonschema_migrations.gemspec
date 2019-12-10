@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.homepage    =  'https://github.com/jasonfb/nonschema_migrations'
   s.license       = 'MIT'
   
-  s.add_runtime_dependency 'activerecord', [">= 5.0", "< 7"]
+  s.add_runtime_dependency 'activerecord', [">= 6.0", "< 7"]
 end
