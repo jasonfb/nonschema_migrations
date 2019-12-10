@@ -1,3 +1,10 @@
+
+```diff
+! Like this gem? Please 'star' it (above), download it from RubyGems, or ... 
+```
+... [consider supporting it today with a small contribution](https://github.com/sponsors/jasonfb/)! For just $1/month you can support the development of this Gem and others like it.
+
+
 _Please use the version number of this gem in lockstep with your Rails version._
 
 | Rails Version    |   |   Use Version of This Gem     |     |           
