@@ -1,5 +1,3 @@
-
-
 MIGRATIONS_PATH = 'db/data_migrate'
 
 require 'generators/data_migrations/install_generator.rb'
