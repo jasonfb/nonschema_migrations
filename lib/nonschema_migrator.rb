@@ -71,7 +71,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
       end
 
       def move(direction, steps)
-        migrator = new_migrator(direction, migrations, schema_migration)
+        migrator = new_migrator(direction, migrations, nil, schema_migration)
 
         if current_version != 0 && !migrator.current_migration
           raise UnknownMigrationVersionError.new(current_version)
@@ -96,7 +96,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
                                 migrations
                               end
 
-        new_migrator(:up, selected_migrations, target_version).migrate
+        new_migrator(:up, selected_migrations, nil, target_version).migrate
       end
 
       def down(target_version = nil)
@@ -106,7 +106,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
                                 migrations
                               end
 
-        new_migrator(:down, selected_migrations, target_version).migrate
+        new_migrator(:down, selected_migrations, nil, target_version).migrate
       end
     end
 
@@ -130,7 +130,7 @@ class NonschemaMigrator < ActiveRecord::Migrator
       end
 
       def run(direction, path, target_version)
-        new_migrator(path, direction, context(path).migrations, target_version).run
+        new_migrator(path, direction, context(path).migrations, nil, target_version).run
       end
     end
 
