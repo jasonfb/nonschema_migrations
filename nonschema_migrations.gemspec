@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.summary     = "Nonschema(data-only) migrations for your Rails app"
   s.description = "Separate schema-only migrations from nonschema (data) migrations in your Rails app"
   s.authors     = ["Jason Fleetwood-Boldt"]
-  s.email       = 'jason.fb@datatravels.com'
+  s.email       = 'code@jasonfb.net'
   s.files       = ["lib/generators/data_migrations/install_generator.rb",
                    "lib/generators/data_migration_generator.rb",
                    "lib/active_record/data_migration.rb",
@@ -16,9 +16,9 @@ Gem::Specification.new do |s|
                    "lib/generators/data_migrations/templates/create_data_migrations.rb",
                    "lib/nonschema_migrations/railtie.rb",
                    "lib/tasks/data.rb"]
-  s.homepage    =  'https://blog.jasonfleetwoodboldt.com/nonschema-migrations/'
+  s.homepage    =  'https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema'
 
-  spec.metadata    = { "source_code_uri" => "https://github.com/jasonfb/nonschema_migrations",
+  s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/nonschema_migrations",
                        "documentation_uri" => "https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema-migrations/",
                        "homepage_uri" => 'https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema-migrations/'}
 
