@@ -138,3 +138,26 @@ advantage: your app is down only for schema migrations and you can let the data 
 
 advantage: your app is never down and you can run data migrations in the background
 
+
+
+## Heroku Pipeline
+
+
+Release tasks should dbe **db:migrate**
+in `release-tasks.sh`
+``` 
+bundle exec rails db:migrate
+```
+
+
+The postdeply task shoul dbe **data:migrate**
+in `app.json`
+```
+"scripts":  {
+   "postdeploy": "bundle exec rails data:migrate"
+}
+```
+Using data migration is like seed data.
+
+However, the above setup will run only for REVIEW APPS. You will still need to manually run the data migration for staging + production. 
+

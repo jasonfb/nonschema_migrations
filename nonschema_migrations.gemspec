@@ -3,7 +3,7 @@ require "./lib/nonschema_migrations/version"
 Gem::Specification.new do |s|
   s.name        = 'nonschema_migrations'
   s.version     = NonSchemaMigrations::VERSION
-  s.date        = '2019-12-10'
+  s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Nonschema(data-only) migrations for your Rails app"
   s.description = "Separate schema-only migrations from nonschema (data) migrations in your Rails app"
   s.authors     = ["Jason Fleetwood-Boldt"]
@@ -16,8 +16,21 @@ Gem::Specification.new do |s|
                    "lib/generators/data_migrations/templates/create_data_migrations.rb",
                    "lib/nonschema_migrations/railtie.rb",
                    "lib/tasks/data.rb"]
-  s.homepage    =  'https://github.com/jasonfb/nonschema_migrations'
+  s.homepage    =  'https://blog.jasonfleetwoodboldt.com/nonschema-migrations/'
+
+  spec.metadata    = { "source_code_uri" => "https://github.com/jasonfb/nonschema_migrations",
+                       "documentation_uri" => "https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema-migrations/",
+                       "homepage_uri" => 'https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema-migrations/'}
+
   s.license       = 'MIT'
-  
+  s.post_install_message = <<~MSG
+    ---------------------------------------------
+    Welcome to Nonschema Migrations
+    to set up, please run
+    
+    rails generate data_migrations:install
+    ---------------------------------------------
+  MSG
+
   s.add_runtime_dependency 'activerecord', [">= 6.0", "< 7"]
 end
