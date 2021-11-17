@@ -16,11 +16,11 @@ Gem::Specification.new do |s|
                    "lib/generators/data_migrations/templates/create_data_migrations.rb",
                    "lib/nonschema_migrations/railtie.rb",
                    "lib/tasks/data.rb"]
-  s.homepage    =  'https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema'
+  s.homepage    =  'https://github.com/jasonfb/nonschema_migrations'
 
   s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/nonschema_migrations",
                        "documentation_uri" => "https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema-migrations/",
-                       "homepage_uri" => 'https://jasonfleetwoodboldt.com/my-open-source-projects/nonschema-migrations/'}
+                       "homepage_uri" => 'https://heliosdev.shop/'}
 
   s.license       = 'MIT'
   s.post_install_message = <<~MSG
@@ -29,8 +29,10 @@ Gem::Specification.new do |s|
     to set up, please run
     
     rails generate data_migrations:install
+
+    For support please check us out at https://heliosdev.shop/
     ---------------------------------------------
   MSG
 
-  s.add_runtime_dependency 'activerecord', [">= 6.0", "< 7"]
+  s.add_runtime_dependency 'activerecord', [">= 6.0"]
 end
