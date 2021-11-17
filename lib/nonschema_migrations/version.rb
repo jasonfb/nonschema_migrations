@@ -1,3 +1,3 @@
 module NonSchemaMigrations
-  VERSION = "5.5"
+  VERSION = "6.0.alpha1"
 end
