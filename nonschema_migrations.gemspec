@@ -34,5 +34,5 @@ Gem::Specification.new do |s|
     ---------------------------------------------
   MSG
 
-  s.add_runtime_dependency 'activerecord', [">= 6.0"]
+  s.add_runtime_dependency 'activerecord', [">= 7.0", "< 8"]
 end
