@@ -12,12 +12,17 @@ _Please use the version number of this gem in lockstep with your Rails version._
 | Rails 5.2        |    | v4.0.2 (Released Jun 2, 2019)                |     |
 | Rails 6.0        |    | v5.1.2.1 (Released Nov 17, 2021)               |    |
 | Rails 7.0.0.alpha2  |    | v6.0.alpha2 (Released Nov 17, 2021)                 |    |
+| Rails 7             |    | v6.5 (Released Jan 11, 2022)                 |    |
+
 
 ## Introduction
 
 Nonschema migrations, also known as data migrations, are a alternative kind of Rails migration. The data migrations operate exactly like schema migrations, except instead of running migrations to make changes to your schema (adding fields, dropping fields, adding tables, etc), you run data migrations to manipulate data in your app, enqueue or execute Resque jobs that require long-running processes. This happens in a Rails app for different reasons, usually to clean up or supplement data or architectural changes.
 
-Splitting your data migrations from your schema migrations has a particular benefit of achieving the most consistent zero-downtime deploys you can. I recommend you switch your deployment script to allow you to do two types of deploys: a Zero-downtime deploy (no schema migrations) and Schema Migration deploy. 
+Splitting your data migrations from your schema migrations has a particular benefit of achieving the most consistent zero-downtime deploys you can. I recommend you switch your deployment script to allow you to do two
+types of deploys: a Zero-downtime deploy (no schema migrations) and Schema Migration deploy.
+
+You can think of data migrations like seed data for production, staging, and dev environments. It is for people who don't like using seed data in dev, and want to have 'seed-parity' between dev + prod. (For example, for a basic set of setup records.)
 
 This way, you can deploy any non-destructive (data-only) migration with a Zero-downtime strategy, and opt to make destructive (schema) migrations in a normal deployment (maintenance on, run schema changes, boot up new app,  maintenance off).  Data-only migrations can be run while the app is actually running, augmenting what you can achieve with the migration-style shortcuts provided by Rails.
 
