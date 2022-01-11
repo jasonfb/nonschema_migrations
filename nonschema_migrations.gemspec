@@ -8,14 +8,11 @@ Gem::Specification.new do |s|
   s.description = "Separate schema-only migrations from nonschema (data) migrations in your Rails app"
   s.authors     = ["Jason Fleetwood-Boldt"]
   s.email       = 'code@jasonfb.net'
-  s.files       = ["lib/generators/data_migrations/install_generator.rb",
-                   "lib/generators/data_migration_generator.rb",
-                   "lib/active_record/data_migration.rb",
-                   "lib/nonschema_migrator.rb",
-                   "lib/nonschema_migrations.rb",
-                   "lib/generators/data_migrations/templates/create_data_migrations.rb",
-                   "lib/nonschema_migrations/railtie.rb",
-                   "lib/tasks/data.rb"]
+
+  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+    files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)}) || f.match(%r{(gemspec|gem)$}) }
+    files
+  end
   s.homepage    =  'https://github.com/jasonfb/nonschema_migrations'
 
   s.metadata    = { "source_code_uri" => "https://github.com/jasonfb/nonschema_migrations",
@@ -30,9 +27,10 @@ Gem::Specification.new do |s|
     
     rails generate data_migrations:install
 
-    For support please check us out at https://heliosdev.shop/
+    For support please see https://heliosdev.shop/
     ---------------------------------------------
   MSG
 
-  s.add_runtime_dependency 'activerecord', ["= 7.0.0.alpha2"]
+
+  spec.add_runtime_dependency "rails",  '> 5.1'
 end
