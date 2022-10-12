@@ -34,7 +34,7 @@ Data migrations functional EXACTLY like schema migrations except:
 
 2) The timestamps used to record which ones have been run are in a table called data_migrations instead of the normal schema_migrations table
 
-3) You run them using rake data:migrate instead of rake db:migrate
+3) You run them using `rails data:migrate` instead of `rails db:migrate`
 
 ## Installation
 To add to your Rails project, follow these steps.
@@ -53,7 +53,7 @@ rails generate data_migrations:install
 This will create a *schema* migration that will create the data_migrations table itself. (There will be a table in your database called data_migrations which will have two columns: id, version. It works exactly like the schema_migrations table.) Now execute that schema migration (and, in turn, be sure to run this on Production):
 
 ```
-rake db:migrate
+rails db:migrate
 ```
 
 You are now set up and ready to start making data migrations. To create your first migration, create it with a generating using a camel-case description of what your data migration does. 
@@ -81,22 +81,22 @@ end
 To actually tell your app to run the data migration, use:
 
 ```
-rake data:migrate
+rails data:migrate
 ```
 
 
 You get three additional rake tasks that operate and have the same syntax as the schema migrations, but operate only on the data migrations. 
 
-## rake data:migrate
+## rails data:migrate
 Migrate all data migrations that haven't been migrated.
 
-## rake data:migrate:down VERSION=xxxxxxxxxxx
+## rails data:migrate:down VERSION=xxxxxxxxxxx
 Migrate down the specified version
 
-## rake data:migrate:up VERSION=xxxxxxxxxxx
+## rails data:migrate:up VERSION=xxxxxxxxxxx
 Migrate up the specified versions.
 
-## rake data:rollback
+## rails data:rollback
 Rollback the last version. Generally data migrations don't have any "down" associated with them so use this only under extreme circumstances. 
 
 
