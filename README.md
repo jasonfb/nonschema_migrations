@@ -4,16 +4,17 @@
 
 _Please use the version number of this gem in lockstep with your Rails version._
 
-| Rails Version    |   |   Use Version of This Gem     |     |           
-|--------------|------------------|---------------------------------------------|-----|
-| Rails 4.x, 4.1.x, 4.2  |   | v1.0.1  (Released Jun 1, 2019)          |     |
-| Rails 5.0        |    | v2.0.1 (Released Jun 1, 2019)                |     |
-| Rails 5.1        |    | v3.0.1 (Released Jun 1, 2019)                |     | 
-| Rails 5.2        |    | v4.0.2 (Released Jun 2, 2019)                |     |
-| Rails 6.0        |    | v5.1.2.1 (Released Nov 17, 2021)               |    |
-| Rails 7.0.0.alpha2  |    | v6.0.alpha2 (Released Nov 17, 2021)                 |    |
-| Rails 7             |    | v6.5 (Released Jan 11, 2022)                 |    |
+| Rails Version         |   | Use Version of This Gem          |     |           
+|-----------------------|------------------|----------------------------------|-----|
+| Rails 4.x, 4.1.x, 4.2 |   | v1.0.1  (Released Jun 1, 2019)   |     |
+| Rails 5.0             |    | v2.0.1 (Released Jun 1, 2019)    |     |
+| Rails 5.1             |    | v3.0.1 (Released Jun 1, 2019)    |     | 
+| Rails 5.2             |    | v4.0.2 (Released Jun 2, 2019)    |     |
+| Rails 6.0             |    | v5.1.2.1 (Released Nov 17, 2021) |    |
+| Rails 7.0             |    | v6.5.1 (Released Jan 11, 2022)   |    |
+| Rails 7.1             |    | not yet compatible               |    |
 
+Note: yanked version 6.5 was not compatible with Rails 7.1. For Rails 7.0 please bump this gem to 6.5.1. 
 
 ## Introduction
 
