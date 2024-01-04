@@ -100,9 +100,6 @@ Migrate up the specified versions.
 ## rails data:rollback
 Rollback the last version. Generally data migrations don't have any "down" associated with them so use this only under extreme circumstances. 
 
-
-#
-
 By default your data migration will run in a single transaction (just like a schema migration).
 
 To turn this off, add `disable_ddl_transaction!` to the top of your migration, like so:
@@ -139,29 +136,34 @@ advantage: your app is down only for schema migrations and you can let the data 
 1. Deploy to heroku with preboot on
 2. Heroku switches the incoming requests to use the new app
 3. Run data migrations (while new app is up & running)
-
 advantage: your app is never down and you can run data migrations in the background
 
-
-
 ## Heroku Pipeline
-
-
-Release tasks should dbe **db:migrate**
-in `release-tasks.sh`
+To use data migrations on the pipeline, the `release-tasks.sh` file should contain only the db:migrate
 ``` 
-bundle exec rails db:migrate
+# Step to execute
+bundle exec rails db:migrate 
+# check for a good exit
+if [ 0 -ne 0 ]
+then
+  puts '*** RELEASE COMMAND FAILED'
+  # something went wrong; convey that and exit
+  exit 1
+fi
 ```
 
 
-The postdeply task shoul dbe **data:migrate**
+The postdeply task should be **data:migrate**
 in `app.json`
 ```
 "scripts":  {
    "postdeploy": "bundle exec rails data:migrate"
 }
 ```
-Using data migration is like seed data.
+The above setup will run data migtrations only for REVIEW APPS. 
+You will still need to manually run the data migration for staging + production. 
 
-However, the above setup will run only for REVIEW APPS. You will still need to manually run the data migration for staging + production. 
-
+If you want to use the data migrations for staging + production, remove the postdeploy script from `app.json` and change release-tasks.sh to :
+```
+bundle exec rails db:migrate data:migrate
+```
