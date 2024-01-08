@@ -4,6 +4,21 @@ require 'active_record/base'
 
 module ActiveRecord
   class DataMigration < ActiveRecord::Base
+    def initialize(migrations)
+
+      @migration_struct = migrations
+    end
+
+
+    def up
+      Migrator.new(:up, @migration_struct).migrate
+    end
+
+    def down
+      Migrator.new(:down, @migration_struct).migrate
+    end
+
+
     class << self
       def primary_key
         nil
