@@ -44,16 +44,6 @@ module ActiveRecord
         end
       end
 
-      def register_task(pattern, task)
-        @tasks ||= {}
-        @tasks[pattern] = task
-      end
-
-      register_task(/mysql/,        "ActiveRecord::Tasks::MySQLDatabaseTasks")
-      register_task(/trilogy/,      "ActiveRecord::Tasks::MySQLDatabaseTasks")
-      register_task(/postgresql/,   "ActiveRecord::Tasks::PostgreSQLDatabaseTasks")
-      register_task(/sqlite/,       "ActiveRecord::Tasks::SQLiteDatabaseTasks")
-
       def data_dir
         @data_dir ||= Rails.application.config.paths["data"].first
       end
@@ -74,11 +64,9 @@ module ActiveRecord
       def migrate(version = nil)
         # get all data migrations in data/migrations
         # get list of data migrations in database
-        already_done = ActiveRecord::Base.connection.execute("SELECT version FROM data_migrations").map { |record| record['version'] }
+        already_done = ActiveRecord::Base.connection.execute("SELECT version FROM data_migrations").map { |record| record['version'].to_i }
 
-        # all_data_migrations = Dir.entries(Rails.root.join('db', 'data_migrate')).select { |file| !File.directory?(file) }.collect{|file| file.match(/^\d+/)[0]}
-
-        all_data_migrations =  migration_files.map do |file|
+        data_migrations =  migration_files.map do |file|
           version, name, scope = parse_migration_filename(file)
           raise IllegalMigrationNameError.new(file) unless version
           version = version.to_i
@@ -86,10 +74,15 @@ module ActiveRecord
 
           MigrationProxy.new(name, version, file, scope)
         end
-
-        (all_data_migrations - already_done).each do |migration|
+        data_migrations.reject! do |mig|
+          already_done.include?(mig.version)
+        end
+        data_migrations.each do |migration|
           require migration.filename
           (eval(migration.name).new).migrate(:up)
+
+          # push the migration into the database
+          ActiveRecord::Base.connection.execute("INSERT INTO data_migrations (version) VALUES (#{migration.version})")
         end
       end
     end
