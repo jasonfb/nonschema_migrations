@@ -1,3 +1,6 @@
 nonschema_migrations-*.gem
 coverage/
+test/dummy_app/log/test.log
+test/dummy_app/tmp/
 
+.byebug_history
