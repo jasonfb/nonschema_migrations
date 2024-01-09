@@ -1,4 +1,4 @@
-# require 'test_helper'
+require_relative '../../test_helper'
 
 # This is the class that will create the SCHEMA migration
 # to create the table data_migrations

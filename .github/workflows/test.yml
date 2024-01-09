@@ -1,0 +1,28 @@
+on: [push, pull_request]
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Ruby ${{ matrix.ruby }}, ${{ matrix.gemfile }}.gemfile
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        gemfile: [ 'rails_7_0' ]
+        ruby: [ '2.7', '3.2' ]
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true # 'bundle install' and cache
+        env:
+          BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
+      - name: Test
+        run: bundle exec rake test
+        env:
+          BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
+
+    

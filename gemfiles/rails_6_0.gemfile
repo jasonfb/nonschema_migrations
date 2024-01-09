@@ -6,12 +6,8 @@ gem "appraisal"
 gem "guard"
 gem "guard-rspec"
 gem "rake"
-gem "byebug", platform: :mri_21
-gem "sqlite3"
-gem "mysql2"
-gem "mocha"
-gem "rails", "6.0.0"
 gem "minitest-rg"
+gem "rails", "6.0.0"
 
 group :test do
   gem "simplecov", require: false

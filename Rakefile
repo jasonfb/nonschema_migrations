@@ -4,17 +4,19 @@ require "bundler/setup"
 
 require 'rake/testtask'
 
-# require "minitest"
-# require 'minist/autorun'
+require 'byebug'
+
+require "minitest/test_task"
 
 
-Rake::TestTask.new do |t|
+Minitest::TestTask.create :test do |t|
   t.libs << 'test'
   t.libs << 'lib'
   t.libs << 'lib/generators'
   t.libs << 'lib/tasks'
   t.libs << 'lib/nonschema_migrations'
-  t.pattern = 'test/**/*_test.rb'
+  t.test_globs  = 'test/**/*_test.rb'
+  t.warning = false
 end
 
 desc "Run tests"
