@@ -167,3 +167,4 @@ If you want to use the data migrations for staging + production, remove the post
 ```
 bundle exec rails db:migrate data:migrate
 ```
+
