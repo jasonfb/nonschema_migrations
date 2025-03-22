@@ -78,8 +78,7 @@ module ActiveRecord
           already_done.include?(mig.version)
         end
         data_migrations.each do |migration|
-          require migration.filename
-          (eval(migration.name).new).migrate(:up)
+          migration.migrate(:up)
 
           # push the migration into the database
           ActiveRecord::Base.connection.execute("INSERT INTO data_migrations (version) VALUES (#{migration.version})")
