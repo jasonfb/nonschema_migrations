@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
   MSG
 
 
-  spec.add_runtime_dependency "rails",  '>= 7.0'
+  spec.add_runtime_dependency "rails", ">= 7.0", "< 8.1"
 end
