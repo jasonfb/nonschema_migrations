@@ -10,11 +10,11 @@ _Please use the version number of this gem in lockstep with your Rails version._
 | Rails 5.1             |    | v3.0.1 (Released Jun 1, 2019)    |     | 
 | Rails 5.2             |    | v4.0.2 (Released Jun 2, 2019)    |     |
 | Rails 6.0             |    | v5.1.2.1 (Released Nov 17, 2021) |    |
-| Rails 7.0             |    |  v6.5.1 (Released Jan 4, 2024), ~v6.5.0 (Released Jan 11, 2022)~   |    |
+| Rails 7.0             |    | v6.5.1 (Released Jan 4, 2024), ~v6.5.0 (Released Jan 11, 2022)~   |    |
 | Rails 7.1 + 7.2       |    | v6.8               |    |
 | Rails 8.0             |    | v6.9               |    |
 
-Note: yanked version 6.5 was not compatible with Rails 7.1. For Rails 7.0 please bump this gem to 6.5.1. 
+Note: yanked version 6.5 was not compatible with Rails 7.1. For Rails 7.0, please bump this gem to 6.5.1. The reason the gem is version locked to Rails itself is that without locking it to Rails versions, any new (future) version of Rails will pull an old (incompatible) version of this gem. 
 
 
 
