@@ -1,5 +1,4 @@
-
-
+<img width="101" height="101" alt="NSM-logo-100x100" src="https://github.com/user-attachments/assets/5eeccd77-2d36-4efa-93ad-4dca6dfea1db" /> **Nonschema Migrations: Separate schema migrations from data migrations.**
 
 
 _Please use the version number of this gem in lockstep with your Rails version._
@@ -12,9 +11,12 @@ _Please use the version number of this gem in lockstep with your Rails version._
 | Rails 5.2             |    | v4.0.2 (Released Jun 2, 2019)    |     |
 | Rails 6.0             |    | v5.1.2.1 (Released Nov 17, 2021) |    |
 | Rails 7.0             |    |  v6.5.1 (Released Jan 4, 2024), ~v6.5.0 (Released Jan 11, 2022)~   |    |
-| Rails 7.1             |    | not yet compatible               |    |
+| Rails 7.1 + 7.2       |    | v6.8               |    |
+| Rails 8.0             |    | v6.9               |    |
 
 Note: yanked version 6.5 was not compatible with Rails 7.1. For Rails 7.0 please bump this gem to 6.5.1. 
+
+
 
 ## Introduction
 
@@ -29,7 +31,7 @@ This way, you can deploy any non-destructive (data-only) migration with a Zero-d
 
 A word of caution: If you find yourself making a lot of data migrations, you might consider if your product/development/business process is too reliant on one-off data importing. It may be that data management tools will help you in the long run. Nonetheless, separating your schema migrations from your data migrations can be a great strategy for modern Rails development.
 
-Data migrations functional EXACTLY like schema migrations except:
+Data migrations function EXACTLY like schema migrations except:
 
 1) They live in db/data_migrate instead of db/migrate
 
