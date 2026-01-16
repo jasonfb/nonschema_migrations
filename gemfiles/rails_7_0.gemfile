@@ -11,7 +11,8 @@ gem "sqlite3", "~> 1.4"
 gem "mocha"
 gem "minitest", "~> 5.25"
 gem "minitest-rg"
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.0.8"
+gem "logger"
 
 group :test do
   gem "simplecov", require: false

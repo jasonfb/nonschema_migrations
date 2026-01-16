@@ -10,6 +10,7 @@ rescue LoadError
 end
 
 # require what the gem & tests need
+require 'logger' # needed for Rails 7.0 compatibility with Ruby 3.2+
 require 'rails'
 require 'minitest'
 require 'minitest/autorun'

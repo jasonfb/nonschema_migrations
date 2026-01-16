@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         gemfile: [ 'rails_7_1' ]
-        ruby: [ '2.7', '3.2' ]
+        ruby: [  '3.3.10' ]
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -25,4 +25,3 @@ jobs:
         env:
           BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
 
-    

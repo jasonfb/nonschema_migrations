@@ -7,11 +7,11 @@ gem "guard"
 gem "guard-rspec"
 gem "rake"
 gem "byebug"
-gem "sqlite3", "~> 1.4"
+gem "sqlite3"
 gem "mocha"
 gem "minitest", "~> 5.25"
 gem "minitest-rg"
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 8.1.0"
 
 group :test do
   gem "simplecov", require: false

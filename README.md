@@ -172,3 +172,4 @@ bundle exec rails db:migrate data:migrate
 
 # Testing
 
+Run with `appraisal rake test`
