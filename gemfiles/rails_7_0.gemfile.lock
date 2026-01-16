@@ -215,8 +215,8 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
-    sqlite3 (1.6.3-arm64-darwin)
-    sqlite3 (1.6.3-x86_64-linux)
+    sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     thor (1.5.0)
     timeout (0.6.0)
     tzinfo (2.0.6)
@@ -244,7 +244,7 @@ DEPENDENCIES
   rails (~> 7.0.8)
   rake
   simplecov
-  sqlite3 (~> 1.4)
+  sqlite3 (~> 1.7)
 
 BUNDLED WITH
    2.5.7
