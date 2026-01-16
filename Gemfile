@@ -6,13 +6,15 @@ gem "appraisal"
 gem 'guard'
 gem 'guard-rspec'
 gem 'rake'
+gem 'byebug'
+
 
 # gem 'rails', '~> 5.2.2'
 # gem 'byebug', platform: :mri_21
 
-# gem 'sqlite3'
+gem 'sqlite3'
 # gem 'mysql2'
-# gem 'mocha'
+gem 'mocha'
 
 # these versions of Rails are used only when running 'rake test' without using Appraisal
 # when run with Appraisal, this version gets overwritten by appraisal
@@ -22,6 +24,7 @@ gem 'rake'
 # ENABLE FOR testing Rails 4.1
 # gem "rails", "5.1.6", :require => false
 
+gem 'minitest', '~> 5.25'
 gem 'minitest-rg'
 
 group :test do
